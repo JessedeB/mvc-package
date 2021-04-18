@@ -5,18 +5,41 @@ namespace App\Core;
 class Router {
 
     protected array $routes = [];
+    public Response $response;
     private Request $request;
 
-    public function __construct(\App\Core\Request $request)
+    /**
+     * Router constructor.
+     * @param Response $response
+     * @param Request $request
+     */
+    public function __construct(Request $request, Response $response)
     {
         $this->request = $request;
+        $this->response = $response;
     }
 
+    /**
+     * @param $path
+     * @param $callback
+     */
     public function get($path, $callback)
     {
         $this->routes['get'][$path] = $callback;
     }
 
+    /**
+     * @param $path
+     * @param $callback
+     */
+    public function post($path, $callback)
+    {
+        $this->routes['post'][$path] = $callback;
+    }
+
+    /**
+     * @return mixed|string|string[]
+     */
     public function resolve()
     {
         $path = $this->request->getPath();
@@ -24,16 +47,22 @@ class Router {
         $callback = $this->routes[$method][$path] ?? false;
 
         if($callback === false) {
-            echo "Not found";
+            $this->response->setStatusCode(404);
+            return "Not found";
         }
 
         if(is_string($callback)) {
             return $this->renderView($callback);
         }
 
-       return call_user_func($callback);
+        return gettype($callback);
+//       return call_user_func($callback);
     }
 
+    /**
+     * @param $view
+     * @return string|string[]
+     */
     public function renderView($view)
     {
         $layoutContent = $this->layoutContent();
@@ -50,6 +79,10 @@ class Router {
         return ob_get_clean();
     }
 
+    /**
+     * @param $view
+     * @return false|string
+     */
     protected function renderOnlyView($view)
     {
         ob_start();
