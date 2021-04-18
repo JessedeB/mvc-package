@@ -1,0 +1,24 @@
+{
+  "name": "mvc-package",
+  "version": "1.0.0",
+  "description": "Custom mvc php",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx mix",
+    "watch": "npx watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JessedeB/mvc-package.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JessedeB/mvc-package/issues"
+  },
+  "homepage": "https://github.com/JessedeB/mvc-package#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.16"
+  }
+}

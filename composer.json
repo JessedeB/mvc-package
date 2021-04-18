@@ -1,0 +1,18 @@
+{
+    "name": "v28/mvc-package",
+    "description": "A custom mvc package",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jesse",
+            "email": "jesseboer@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
