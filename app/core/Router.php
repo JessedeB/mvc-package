@@ -44,6 +44,7 @@ class Router {
 
     protected function layoutContent()
     {
+
         ob_start();
         include_once Application::$ROOT_DIR."/views/layouts/app.php";
         return ob_get_clean();
@@ -52,7 +53,7 @@ class Router {
     protected function renderOnlyView($view)
     {
         ob_start();
-        include_once Application::$ROOT_DIR."/views/layouts/$view.php";
+        include_once Application::$ROOT_DIR."/views/$view.php";
         return ob_get_clean();
     }
 
