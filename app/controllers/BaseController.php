@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controllers;
+
+use App\Core\Application;
 
 class BaseController {
 
-    public function handle()
-    {
-        return 'Form handled';
+    public function view($view, $params = []) {
+        return Application::$app->router->renderView($view, $params);
     }
 
 }
