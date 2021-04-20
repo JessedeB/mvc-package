@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Request;
 
-class SiteController extends BaseController
+class SiteController extends Controller
 {
     public function users()
     {
