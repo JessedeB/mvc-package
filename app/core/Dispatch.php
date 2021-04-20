@@ -2,7 +2,12 @@
 
 namespace App\Core;
 
-use Exception;
+/**
+ * Class Dispatch
+ * @package App\Core
+ *
+ * UNDER CONSTRUCTION
+ */
 
 class Dispatch {
 

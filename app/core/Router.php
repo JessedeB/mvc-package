@@ -68,13 +68,13 @@ class Router {
      */
     public function renderView($view, $params = [])
     {
-        $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view, $params);
+        $layoutContent = $this->RenderLayoutContent();
+        $viewContent = $this->renderViewLayout($view, $params);
 
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 
-    protected function layoutContent()
+    protected function RenderLayoutContent()
     {
         ob_start();
         include_once Application::$ROOT_DIR."/views/layouts/app.php";
@@ -85,7 +85,7 @@ class Router {
      * @param $view
      * @return false|string
      */
-    protected function renderOnlyView($view, $params)
+    protected function renderViewLayout($view, $params)
     {
 
         foreach($params as $key => $value) {
