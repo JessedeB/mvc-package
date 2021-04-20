@@ -6,7 +6,7 @@ class Router {
 
     protected array $routes = [];
     public Response $response;
-    private Request $request;
+    public Request $request;
 
     /**
      * Router constructor.
